@@ -1,26 +1,39 @@
 import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import { useState } from "react";
+import InputComponent from "./InputComponent";
+import ListaTareas from "./ListaTareas";
 
 //create your first component
 const Home = () => {
+
+	const [listaTareas, setListaTareas] = useState([])
+
+	function agregarTarea(nuevaTarea) {
+		//Esta es la forma de sustituir al push en React
+		setListaTareas([...listaTareas, nuevaTarea]);
+	}
+
+	function eliminarTarea (nombreTarea){
+
+		setListaTareas(listaTareas.filter(tarea => tarea !== nombreTarea))
+
+	}
+
 	return (
 		<div className="text-center">
-            
+			<h1>
+				Lista de tareas
+				<i className="fa-solid fa-clipboard-list"></i>
+			</h1>
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<InputComponent
+				listaTareas={listaTareas}
+				agregarTarea={agregarTarea}
+			/>
+			<ListaTareas
+				listaTareas={listaTareas}
+				eliminarTarea={eliminarTarea}
+			/>
 		</div>
 	);
 };
