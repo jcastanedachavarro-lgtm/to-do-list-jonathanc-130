@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ButtonComponent from './ButtonComponent'
+import "./ItemTarea.css"
 
 //onMouseOver={()=>setInvisible(!invisible)}
 
@@ -9,13 +10,15 @@ export default function ItemTarea({ tarea, eliminarTarea }) {
 
     return (
         <section>
-            <div onMouseOver={() => setInvisible(!invisible)}>
+            <div onMouseEnter={() => setInvisible(true)}
+                onMouseLeave={() => setInvisible(false)}
+             className='container-tarea'>
                 <li>
                     {tarea.tareas}
                 </li>
-            </div>
             <div>
                 {invisible && <ButtonComponent texto="Eliminar" tarea={tarea} eliminarTarea={eliminarTarea} />}
+            </div>
             </div>
         </section>
     )

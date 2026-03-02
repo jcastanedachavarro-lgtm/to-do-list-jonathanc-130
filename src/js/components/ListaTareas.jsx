@@ -9,9 +9,9 @@ export default function ListaTareas({ listaTareas, eliminarTarea }) {
       <article>
         <h3>Tareas</h3>
         {listaTareas.length === 0 ? (<p>No hay tareas guardadas</p>) :
-          (<ul>{listaTareas.map((tarea) =>
+          (<ol>{listaTareas.map((tarea) =>
             <ItemTarea key={tarea.id} tarea={tarea} eliminarTarea={eliminarTarea} />)}
-          </ul>)}
+          </ol>)}
       </article>
     </div>
   )
