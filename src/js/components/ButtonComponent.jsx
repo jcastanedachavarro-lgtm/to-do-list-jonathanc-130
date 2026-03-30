@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function ButtonComponent({ clase, eliminarTarea, texto, tarea }) {
+export default function ButtonComponent({ clase, eliminarTarea, texto, id }) {
 
 
   return (
@@ -8,7 +8,7 @@ export default function ButtonComponent({ clase, eliminarTarea, texto, tarea }) 
     <button
       className={`button ${clase}`}
       style={{ fontFamily: "monospace", color: 'white', background: 'red', borderBlockColor: "white" }}
-      onClick={() => eliminarTarea(tarea)}
+      onClick={() => eliminarTarea(id)}
     >
       {texto}
     </button>

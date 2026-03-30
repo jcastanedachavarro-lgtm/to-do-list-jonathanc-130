@@ -7,11 +7,12 @@ export default function InputComponent({ agregarTarea }) {
 
 
     function handleKeyDown(e) {
-        if (e.key === "Enter") {
-            alert("Presionaste Enter");
+        if (tarea.trim() && e.key === "Enter") {
+            alert("Agregando la tarea: " + tarea);
             const nuevaTarea = {
-                id: Date.now(),
-                tareas: tarea,
+                label: tarea,
+                is_done: false
+
             };
 
             agregarTarea(nuevaTarea)

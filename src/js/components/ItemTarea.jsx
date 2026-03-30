@@ -12,13 +12,13 @@ export default function ItemTarea({ tarea, eliminarTarea }) {
         <section>
             <div onMouseEnter={() => setInvisible(true)}
                 onMouseLeave={() => setInvisible(false)}
-             className='container-tarea'>
+                className='container-tarea'>
                 <li>
-                    {tarea.tareas}
+                    {tarea.label}
                 </li>
-            <div>
-                {invisible && <ButtonComponent texto="Eliminar" tarea={tarea} eliminarTarea={eliminarTarea} />}
-            </div>
+                <div>
+                    {invisible && <ButtonComponent texto="Eliminar" id={tarea.id} eliminarTarea={eliminarTarea} />}
+                </div>
             </div>
         </section>
     )
