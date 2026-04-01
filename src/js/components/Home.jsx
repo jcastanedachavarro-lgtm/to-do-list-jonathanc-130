@@ -2,12 +2,23 @@ import React from "react";
 import { useState, useEffect } from "react";
 import InputComponent from "./InputComponent";
 import ListaTareas from "./ListaTareas";
-import { getApi, newTask, deleteTask } from "../api/api";
+import { getApi, newTask, deleteTask, getUser } from "../api/api";
 
 //create your first component
 const Home = () => {
 
 	const [listaTareas, setListaTareas] = useState([])
+
+	function createUser(user) {
+		getUser('https://playground.4geeks.com/todo/users/jonathan_cast130', user)
+			.then((data) => {
+				console.log(data);
+				getUser('https://playground.4geeks.com/todo/users/jonathan_cast130')
+					.then((data) => setListaTareas(data.todos))
+					.catch((error) => console.log(error))
+			})
+			.catch((error) => console.log(error))	
+	}	
 
 	function agregarTarea(nuevaTarea) {
 		//Esta es la forma de sustituir al push en React
