@@ -14,11 +14,11 @@ const Home = () => {
 			.then((data) => {
 				console.log(data);
 				getUser('https://playground.4geeks.com/todo/users/jonathan_cast130')
-					.then((data) => setListaTareas(data.todos))
+					.then((data) => setListaTareas(data.user.todos))
 					.catch((error) => console.log(error))
 			})
-			.catch((error) => console.log(error))	
-	}	
+			.catch((error) => console.log(error))
+	}
 
 	function agregarTarea(nuevaTarea) {
 		//Esta es la forma de sustituir al push en React
@@ -50,6 +50,7 @@ const Home = () => {
 
 	useEffect(() => {
 
+		createUser('jonathan_cast130');
 
 		getApi('https://playground.4geeks.com/todo/users/jonathan_cast130')
 			.then((data) => setListaTareas(data.todos))
